@@ -1,13 +1,49 @@
-submit.onclick = userSubmitted;
 
-var users = {user1: ["wombat_fire123", "bug"]};
+const submitButton = document.getElementById('submit');
+submitButton.addEventListener('click', userSubmitted);
 
-function userSubmitted() {
-    const rawusername = document.getElementById("username");
-    const rawpassword = document.getElementById("password");
-    const username = rawusername.value;
-    const password = rawpassword.value;
-    console.log(username);
-    console.log(password);
-}
+const users = {
+    splat: "not plop",
+    plop: "not splat",
+};
+
+function userSubmitted(event) {
+    event.preventDefault(); // Prevent default form submission
+
+    const rawUsername = document.getElementById("username");
+    const rawPassword = document.getElementById("password");
+    const username = rawUsername.value;
+    const password = rawPassword.value;
+    const currentPlace = document.getElementById("div1");
+
     
+    let correct_login = false;
+
+  
+    for (let egg in users) {
+        
+        if (egg == username && users[egg] == password) {
+            
+            correct_login = true;
+            
+            break;
+        }
+    }
+    if (correct_login) {
+        currentPlace.innerHTML = ""; // Clear existing content
+
+        const newElement = document.createElement("p");
+        const newContent = document.createTextNode("Correct login");
+        newElement.appendChild(newContent);
+        currentPlace.appendChild(newElement);
+    } else {
+        currentPlace.innerHTML = ""; // Clear existing content
+
+        const newElement2 = document.createElement("p");
+        const newContent2 = document.createTextNode("Incorrect login");
+        newElement2.appendChild(newContent2);
+        currentPlace.appendChild(newElement2);
+    }
+}
+
+
