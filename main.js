@@ -6,9 +6,17 @@ const users = {
     splat: "not plop",
     plop: "not splat",
 };
+function accountExists(username) {
+    for (let i in users) { // Iterate through all keys (usernames)
+        if (i == username) { // Check if the current key matches the input username
+            return true; // Found the username, return true
+        }
+    }
+    return false; // Username not found after checking all keys, return false
+}
 
-function userSubmitted(event) {
-    event.preventDefault(); // Prevent default form submission
+function userSubmitted(event) { event.preventDefault(); 
+
 
     const rawUsername = document.getElementById("username");
     const rawPassword = document.getElementById("password");
@@ -16,27 +24,20 @@ function userSubmitted(event) {
     const password = rawPassword.value;
     const message_board = document.getElementById("message");
     message_board.innerHTML = "";
-    
+
     let correct_login = false;
+    const account_exists = accountExists(username);
 
-  
-    for (let i in users) {
-        
-        if (i == username && users[i] == password) {
-            
-            correct_login = true;
-            
-            break;
+        for (let i in users) {
+            if (i == username && users[i] == password) {
+                correct_login = true;
+                break;
+            }
         }
-    }
-    if (correct_login) {
-        message_board.innerHTML = "Correct login";
-        message_board.className = "reddit-mono-regular";
-
-    } else {
-        message_board.innerHTML = "Incorrect login"; 
-        message_board.className = "reddit-mono-regular";
-    }
-}
-
+        if (correct_login) {
+            message_board.innerHTML = "Correct login";
+        } else {
+            message_board.innerHTML = "Incorrect password";
+        }
+    } 
 
