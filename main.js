@@ -20,9 +20,9 @@ function userSubmitted(event) {
     let correct_login = false;
 
   
-    for (let egg in users) {
+    for (let i in users) {
         
-        if (egg == username && users[egg] == password) {
+        if (i == username && users[i] == password) {
             
             correct_login = true;
             
