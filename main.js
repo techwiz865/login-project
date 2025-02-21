@@ -14,8 +14,8 @@ function userSubmitted(event) {
     const rawPassword = document.getElementById("password");
     const username = rawUsername.value;
     const password = rawPassword.value;
-    const currentPlace = document.getElementById("div1");
-
+    const message_board = document.getElementById("message");
+    message_board.innerHTML = "";
     
     let correct_login = false;
 
@@ -30,19 +30,10 @@ function userSubmitted(event) {
         }
     }
     if (correct_login) {
-        currentPlace.innerHTML = ""; // Clear existing content
+        message_board.innerHTML = "Correct login";
 
-        const newElement = document.createElement("p");
-        const newContent = document.createTextNode("Correct login");
-        newElement.appendChild(newContent);
-        currentPlace.appendChild(newElement);
     } else {
-        currentPlace.innerHTML = ""; // Clear existing content
-
-        const newElement2 = document.createElement("p");
-        const newContent2 = document.createTextNode("Incorrect login");
-        newElement2.appendChild(newContent2);
-        currentPlace.appendChild(newElement2);
+        message_board.innerHTML = "Incorrect login"; 
     }
 }
 
