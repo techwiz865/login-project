@@ -30,7 +30,7 @@ function userSubmitted(event) {
         }
     }
     if (correct_login) {
-        message_board.innerHTML = "Correct login";
+        message_board.className = "";
 
     } else {
         message_board.innerHTML = "Incorrect login"; 
