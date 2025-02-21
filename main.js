@@ -30,10 +30,12 @@ function userSubmitted(event) {
         }
     }
     if (correct_login) {
-        message_board.className = "";
+        message_board.innerHTML = "Correct login";
+        message_board.className = "reddit-mono-regular";
 
     } else {
         message_board.innerHTML = "Incorrect login"; 
+        message_board.className = "reddit-mono-regular";
     }
 }
 
