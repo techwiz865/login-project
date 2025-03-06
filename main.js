@@ -36,8 +36,9 @@ function userSubmitted(event) { event.preventDefault();
         }
         if (correct_login) {
             message_board.innerHTML = "Correct login";
-        } else {
+        } else if (account_exists == true && correct_login == false) {
             message_board.innerHTML = "Incorrect password";
-        }
+        } else if (account_exists == false && correct_login == false)
+            message_board.innerHTML = "Account does not exist";
     } 
 

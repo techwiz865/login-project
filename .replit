@@ -1,0 +1,19 @@
+modules = ["nodejs-20", "web"]
+
+[nix]
+channel = "stable-24_05"
+
+[workflows]
+runButton = "Run with Web Server"
+
+[[workflows.workflow]]
+name = "Run with Web Server"
+author = 32098980
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "npx http-server -p 8080"
+
+[[ports]]
+localPort = 8080
+externalPort = 80
